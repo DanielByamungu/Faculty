@@ -1,0 +1,14 @@
+div > h1,
+div > h3,
+div > h4 {
+  font-family: var(--segoe-font);
+  text-align: center;
+}
+
+h3 {
+  margin-top: 10px;
+}
+
+div {
+  transform: translateY(50%);
+}

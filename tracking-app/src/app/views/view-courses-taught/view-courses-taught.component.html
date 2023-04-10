@@ -1,0 +1,57 @@
+<navbar>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+  <navlink
+    linkref="/management"
+    linkval="Management"
+  ></navlink>
+</navbar>
+
+<div class="flex-col data-container">
+  <div class="title-container flex-row">
+    <div>
+      <h1>All Courses</h1>
+      <h3>By filter: {{filterType}}</h3>
+      <input type="checkbox" />
+      <label class="ml-1">Vacant</label>
+    </div>
+
+    <form class="flex-col flex-center" (ngSubmit)="filterTable(filterByName, 'NAME')">
+      <div class="search-container">
+        <input #filterByName type="text" placeholder="Course Name"/>
+        <input type="submit" value="Search"/>
+      </div>
+    </form>
+    <form class="flex-col flex-center" (ngSubmit)="filterTable(filterByCode, 'CODE')">
+    <div class="search-container">
+        <input #filterByCode type="text" placeholder="Course Code"/>
+        <input #filterType  type="submit" value="Search"/>
+      </div>
+    </form>
+  </div>
+
+
+  <table class="table-container listing-table">
+    <thead>
+    <tr class="table-bg-grey">
+      <th>Course Code</th>
+      <th>Course Name</th>
+      <th>Section #</th>
+      <th>Term</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <!-- <tr *ngFor="let c of courses"> -->
+      <!-- <td>{{c.course_code}}</td>
+      <td>{{c.course_name}}</td>
+      <td>{{c.section_id}}</td>
+      <td>{{getTermName(c.term_id)}}</td>
+      <td>
+        <a class="actionLink" routerLink="/edit-courses/{{c.course_id}}">Edit</a> |
+        <a class="actionLink" routerLink="/course-schedule/{{c.course_id}}">Edit</a> |
+        <a class="actionLink" routerLink="">Delete</a> |
+      </td>
+    </tr> -->
+    </tbody>
+  </table>
+</div>

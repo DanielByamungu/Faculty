@@ -1,0 +1,161 @@
+Rest API EndPoints 
+
+USER -
+	POST: "/users", METHOD: getLoginUser, PARAMS: String email, String pswrd
+	
+FACULTY - 
+	GET: "/faculty/{u_id}", METHOD: getById, PARAMS: Integer u_id
+	GET: "/faculty", METHOD: getAll, PARAMS: NONE
+	POST: "/faculty", METHOD: add, PARAMS: Faculty user, CONSUMES: "application/json"
+	PUT: "/faculty/{u_id}", METHOD: update, PARAMS: Integer u_id, CONSUMES: "application/json"
+	DELETE: "/faculty/{u_id}", METHOD: delete, PARAMS: Integer u_id
+	POST: "/faculty/login", METHOD: Login, PARAMS: String email, String pswrd
+	
+COORDINATOR - 
+	GET: "/coordinators/{u_id}", METHOD: getById, PARAMS: Integer u_id
+	GET: "/coordinators", METHOD: getAll, PARAMS: NONE
+	POST: "/coordinators", METHOD: add, PARAMS: Coordinator user, CONSUMES: "application/json"
+	PUT: "/coordinators/{u_id}", METHOD: update, PARAMS: Integer u_id, Coordinator user, CONSUMES: "application/json"
+	DELETE: "/coordinators/{u_id}", METHOD: delete, PARAMS: Integer u_id
+	POST: "/coordinators/login", METHOD: Login, PARAMS: String email, String pswrd
+	
+APPLICANT -
+	GET: "/applicants/{u_id}", METHOD: getById, PARAMS: Integer u_id
+	GET: "/applicants", METHOD: getAll, PARAMS: NONE
+	POST: "/applicants", METHOD: add, PARAMS: Applicant user, CONSUMES: "application/json"
+	PUT: "/applicanst/{u_id}", METHOD: update, PARAMS: Integer u_id, Applicant user, CONSUMES: "application/json"
+	DELETE: "/applicants/{u_id}", METHOD: delete, PARAMS: Integer u_id
+	POST: "/applicants/login", METHOD: Login, PARAMS: String email, String pswrd
+	
+ADMIN -
+	GET: "/admins/{u_id}", METHOD: getById, PARAMS: Integer u_id
+	GET: "/admins", METHOD: getAll, PARAMS: NONE
+	POST: "/admins", METHOD: add, PARAMS: Admin user, CONSUMES: "application/json"
+	PUT: "/admins/{u_id}", METHOD: update, PARAMS: Integer u_id, Admin user, CONSUMES: "application/json"
+	DELETE: "/admins/{u_id}", METHOD: delete, PARAMS: Integer u_id
+	POST: "/admins/login", METHOD: Login, PARAMS: String email, String pswrd
+	
+USERTYPES - 
+	GET: "/usertypes/{type_id}", METHOD: getById, PARAMS: Integer type_id
+	GET: "/usertypes", METHOD: getAll, PARAMS: NONE
+	POST: "/usertypes", METHOD: add, PARAMS: UserType usertype, CONSUMES: "application/json"
+	PUT: "/usertypes/{type_id}", METHOD: update, PARAMS: Integer type_id, UserType usertype, CONSUMES: "application/json"
+	DELETE: "/usertypes/{type_id}", METHOD: delete, PARAMS: Integer type_id
+	
+SKILLS - 
+	GET: "/skills/{skill_id}", METHOD: getById, PARAMS: Integer skill_id
+	GET: "/skills", METHOD: getAll, PARAMS: NONE
+	POST: "/skills", METHOD: add, PARAMS: Skills skill, CONSUMES: "application/json"
+	PUT: "/skills/{skill_id}", METHOD: update, PARAMS: Integer skill_id, Skills skill, CONSUMES: "application/json"
+	DELETE: "/skills/{skill_id}", METHOD: delete, PARAMS: Integer skill_id
+	
+FACULTYSKILLS - 
+	GET: "/facultyskills/{skill_id}", METHOD: getById, PARAMS: Integer skill_id
+	GET: "/facultyskills", METHOD: getAll, PARAMS: NONE
+	GET: "/facultyskills/faculty, METHOD getAllUsersWithSkill, PARAMS: List<Integer> skill_id
+	GET: "/facultyskills/skills, METHOD getAllSkillsForUser, PARAMS: List<Integer> u_id
+	POST: "/facultyskills", METHOD: add, PARAMS: FacultySkill addSkill, CONSUMES: "application/json"
+	PUT: "/facultyskills/{skill_id}", METHOD: update, PARAMS: Integer skill_id, FacultySkill addSkill, CONSUMES: "application/json"
+	DELETE: "/facultyskills/delete", METHOD: delete, PARAMS: Integer u_id, Integer skill_id
+	
+APPLICANTSKILLS - 
+	GET: "/applicantskills/{skill_id}", METHOD: getById, PARAMS: Integer skill_id
+	GET: "/applicantskills", METHOD: getAll, PARAMS: NONE
+	GET: "/applicantskills/faculty, METHOD getAllUsersWithSkill, PARAMS: List<Integer> skill_id
+	GET: "/applicantskills/skills, METHOD getAllSkillsForUser, PARAMS: List<Integer> u_id
+	POST: "/applicantskills", METHOD: add, PARAMS: ApplicantSkill newSkill, CONSUMES: "application/json"
+	PUT: "/applicantskills/{skill_id}", METHOD: update, PARAMS: Integer skill_id, ApplicantSkill newSkill, CONSUMES: "application/json"
+	DELETE: "/applicantskills/delete", METHOD: delete, PARAMS: Integer u_id, Integer skill_id
+	
+FACULTYAVAILABILITY -
+	GET: "/facultyavailability/user_day", METHOD: getById, PARAMS: Integer av_id, Integer day_id
+	GET: "/facultyavailability", METHOD: getAll, PARAMS: NONE
+	POST: "/facultyavailability", METHOD: add, PARAMS: FacultyAvailability availability, CONSUMES: "application/json"
+	PUT: "/facultyavailability/{av_id}", METHOD: update, PARAMS: Integer av_id, FacultyAvailability availability, CONSUMES: "application/json"
+	DELETE: "/facultyavailability/{av_id}", METHOD: delete, PARAMS: Integer av_id
+	
+APPLICANTAVAILABILITY -
+	GET: "/applicantavailability/user_day", METHOD: getById, PARAMS: Integer av_id, Integer day_id
+	GET: "/applicantavailability", METHOD: getAll, PARAMS: NONE
+	POST: "/applicantavailability", METHOD: add, PARAMS: ApplicantAvailability availability, CONSUMES: "application/json"
+	PUT: "/applicantavailability/{av_id}", METHOD: update, PARAMS: Integer av_id, ApplicantAvailability availability, CONSUMES: "application/json"
+	DELETE: "/applicantavailability/{av_id}", METHOD: delete, PARAMS: Integer av_id
+	
+DAYSOFWEEK -
+	GET: "/daysofweek/{day_id}", METHOD: getById, PARAMS: Integer day_id
+	GET: "/daysofweek", METHOD: getAll, PARAMS: NONE
+	POST: "/daysofweek", METHOD: add, PARAMS: DaysOfWeek day, CONSUMES: "application/json"
+	PUT: "/daysofweek/{day_id}", METHOD: update, PARAMS: Integer day_id, DaysOfWeek day, CONSUMES: "application/json"
+	DELETE: "/daysofweek/{day_id}", METHOD: delete, PARAMS: Integer day_id
+	
+JOBPOSTINGS -
+	GET: "/jobpostings/{job_id}", METHOD: getById, PARAMS: Integer job_id
+	GET: "/jobpostings", METHOD: getAll, PARAMS: NONE
+	POST: "/jobpostings", METHOD: add, PARAMS: JobPosting jobPost, CONSUMES: "application/json"
+	PUT: "/jobpostings/{job_id}", METHOD: update, PARAMS: Integer job_id, JobPosting jobPost, CONSUMES: "application/json"
+	DELETE: "/jobpostings/{job_id}", METHOD: delete, PARAMS: Integer job_id
+	
+APPLICATIONS -
+	GET: "/applications/{app_id}", METHOD: getById, PARAMS: Integer app_id
+	GET: "/applications", METHOD: getAll, PARAMS: NONE
+	GET: "applications/user/{user_id)", METHOD: getApplicationForUser, PARAMS: Integer u_id 
+	POST: "/applications", METHOD: add, PARAMS: Applications application, CONSUMES: "application/json"
+	PUT: "/applications/{app_id}", METHOD: update, PARAMS: Integer app_id, Applications application, CONSUMES: "application/json"
+	DELETE: "/applications/{app_id}", METHOD: delete, PARAMS: Integer app_id
+
+STATUS - 
+	GET: "/status", METHOD: getAll, PARAMS: NONE
+	GET: "/applications/{s_id}", METHOD: getById, PARAMS: Integer s_id
+	POST: "/status", METHOD: add, PARAMS: Status newStatus, CONSUMES: "application/json"
+	PUT: "/status/{s_id}", METHOD: update, PARAMS: Integer s_id, Status newStatus, CONSUMES: "application/json"
+	DELETE: "/status/{s_id}", METHOD: delete, PARAMS: Integer s_id
+	
+RESUMES - 
+	GET: "/resumes", METHOD: getAll, PARAMS: NONE
+	GET: "/applications/{r_id}", METHOD: getById, PARAMS: Integer r_id
+	POST: "/resumes", METHOD: add, PARAMS: Resumes newResume, CONSUMES: "application/json"
+	PUT: "/resumes/{r_id}", METHOD: update, PARAMS: Integer r_id, Resumes newResume, CONSUMES: "application/json"
+	DELETE: "/resumes/{r_id}", METHOD: delete, PARAMS: Integer r_id
+	
+EXCELSHEETS -
+	GET: "/excelsheets", METHOD: getAll, PARAMS: NONE
+	GET: "/applications/{id}", METHOD: getById, PARAMS: Integer id
+	POST: "/excelsheets", METHOD: add, PARAMS: ExcelSheets newSheet, CONSUMES: "application/json"
+	PUT: "/excelsheets/{id}", METHOD: update, PARAMS: Integer id, ExcelSheets newSheet, CONSUMES: "application/json"
+	DELETE: "/excelsheets/{id}", METHOD: delete, PARAMS: Integer id
+	
+TERMS -
+	GET: "/terms", METHOD: getAll, PARAMS: NONE
+	GET: "/terms/{term_id}", METHOD: getById, PARAMS: Integer term_id
+	POST: "/terms", METHOD: add, PARAMS: Terms term, CONSUMES: "application/json"
+	PUT: "/terms/{term_id}", METHOD: update, PARAMS: Integer term_id, Terms term, CONSUMES: "application/json"
+	DELETE: "/terms/{term_id}", METHOD: delete, PARAMS: Integer term_id
+	
+SECTIONS -
+	GET: "/sections", METHOD: getAll, PARAMS: NONE
+	GET: "/sections/{section_id}", METHOD: getById, PARAMS: Integer section_id
+	POST: "/sections", METHOD: add, PARAMS: Sections newSec, CONSUMES: "application/json"
+	PUT: "/sections/{section_id}", METHOD: update, PARAMS: Integer section_id, Sections newSec, CONSUMES: "application/json"
+	DELETE: "/sections/{section_id}", METHOD: delete, PARAMS: Integer section_id
+	
+PROGRAMS -
+	GET: "/programs", METHOD: getAll, PARAMS: NONE
+	GET: "/programs/{pr_id}", METHOD: getById, PARAMS: Integer pr_id
+	POST: "/programs", METHOD: add, PARAMS: Programs newProg, CONSUMES: "application/json"
+	PUT: "/programs/{pr_id}", METHOD: update, PARAMS: Integer pr_id, Programs newProg, CONSUMES: "application/json"
+	DELETE: "/programs/{pr_id}", METHOD: delete, PARAMS: Integer pr_id
+
+COURSESTAUGHT -
+	GET: "/coursestaught", METHOD: getAll, PARAMS: NONE
+	GET: "/coursestaught", METHOD: getByIds, PARAMS: Integer course_id, Integer u_id
+	GET: "/coursestaught/users", METHOD: getAllUsersTeachingCourse, PARAMS: List<Integer> course_id
+	GET: "/coursestaught/courses", METHOD: getAllCourseForUser, PARAMS: List<Integer> u_id
+	POST: "/coursestaught", METHOD: add, PARAMS: CoursesTaught toughtCourse, CONSUMES: "application/json"
+	DELETE: "/coursestaught/delete", METHOD: delete, PARAMS: Integer course_id, Integer u_id
+	
+COURSES -
+	GET: "/courses", METHOD: getAll, PARAMS: NONE
+	GET: "/courses/{course_id}", METHOD: getById, PARAMS: Integer course_id
+	POST: "/courses", METHOD: add, PARAMS: Courses newCourse, CONSUMES: "application/json"
+	PUT: "/courses/{course_id}", METHOD: update, PARAMS: Integer course_id, Courses newCourse, CONSUMES: "application/json"
+	DELETE: "/courses/{course_id}", METHOD: delete, PARAMS: Integer course_id

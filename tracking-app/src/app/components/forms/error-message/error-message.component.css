@@ -1,0 +1,13 @@
+.text-red {
+  color: red;
+  white-space: pre-wrap;
+  text-align: start;
+  margin-left: 1rem;
+}
+
+p {
+  text-align: center;
+  font-family: var(--segoe-font);
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}

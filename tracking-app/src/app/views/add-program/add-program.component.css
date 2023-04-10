@@ -1,0 +1,127 @@
+#form-info-container > h1,
+#form-info-container > p {
+  color: rgba(182, 182, 182, 0.8);
+}
+
+#form-info-container {
+  width: 80vw;
+  margin: 5% auto 0 auto;
+}
+
+#form-container {
+  margin: auto;
+  width: 80vw;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+* {
+  font-family: var(--segoe-font);
+}
+
+#facultyForm > table {
+  text-align: center;
+}
+
+#facultyForm {
+  width: 80vw;
+  margin: auto;
+  position: relative;
+  top: 50px;
+}
+
+@media screen and (max-width: 360px) {
+  #facultyForm,
+  #form-container,
+  #form-info-container {
+    text-align: center;
+    width: 90vw;
+  }
+}
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #2196f3; /* blue */
+  color: black !important;
+  margin-bottom: 15px;
+}
+.alert > p {
+  color: black !important;
+}
+
+.alert > h1 {
+  color: black !important;
+  text-align: center;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+.radio-btn {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+.radio-btn > input {
+  margin-right: 3px;
+}
+
+.radio-btn > label {
+  margin-right: 2em;
+}
+
+.input-text {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-text > input {
+  padding: 5px;
+  margin: auto;
+  width: 30vw;
+}
+
+.text-left-align {
+  text-align: left;
+}
+
+form > p {
+  text-align: center;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+  padding: 5px;
+}
+
+@media screen and (max-width: 360px) {
+  .input-text > input {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .input-text > input {
+    width: 55vw;
+  }
+}

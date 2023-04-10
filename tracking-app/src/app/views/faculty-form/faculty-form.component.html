@@ -1,0 +1,28 @@
+<navbar>
+  <navlink [active]="false" linkref="/home" linkval="Home"></navlink>
+  <navlink
+    [active]="false"
+    linkref="/job-postings"
+    linkval="Job Listings"
+  ></navlink>
+  <navlink
+    [active]="false"
+    linkref="/management"
+    linkval="Management"
+  ></navlink>
+</navbar>
+<form class="small-form-container" #facultyForm="ngForm" (ngSubmit)="onSubmit()">
+  <h1 class="form-title">Add {{ userType }}</h1>
+  <div class="input-container">
+    <form-input type="text" text="E-mail" inputName="email"></form-input>
+    <form-input
+      type="password"
+      inputName="password"
+      text="Password"
+    ></form-input>
+  </div>
+  <div class="flex-row space-evenly">
+    <form-submit inputval="Submit"></form-submit>
+  </div>
+  <input type="hidden" id="typeId" name="typeId" value="{{ typeId }}" />
+</form>

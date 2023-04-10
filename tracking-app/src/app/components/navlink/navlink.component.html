@@ -1,0 +1,9 @@
+<a
+  *ngIf="active && !signOut"
+  routerLink="{{ linkref }}"
+  class="active-link disabled"
+  >{{ linkval }}</a
+>
+<a *ngIf="!active && !signOut" routerLink="{{ linkref }}">{{ linkval }}</a>
+
+<a *ngIf="signOut" (click)="logout()">{{ linkval }}</a>

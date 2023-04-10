@@ -1,0 +1,18 @@
+<navbar>
+    <navlink linkref="/job-postings" linkval="Job Listings"></navlink>
+    <navlink *ngIf="user.type_id < 3" linkref="/management" linkval="Management"></navlink>
+    <navlink [signOut]="true" linkval="Sign out"></navlink>
+  </navbar>
+
+<div class="schedule-container" id="Schedule">
+  <ejs-schedule width='100%' height='550px' #scheduleObj (click)="onClick(scheduleObj)" [selectedDate]="selectedDate" [eventSettings]="eventSettings" [currentView]='currentView'>
+    <e-views>
+      <e-view option="Week" startHour="08:00" endHour="23:00" ></e-view>
+      <e-view option="WorkWeek" startHour="08:00" endHour="23:00"></e-view>
+    </e-views>
+  </ejs-schedule>
+</div>
+
+<h1>Click on the Calendar to add a class to that day</h1>
+<h2> When finished, click 'SUBMIT' button</h2>
+<button style="background-color: darkgoldenrod; padding: .5rem; font-weight: bolder; font-size: x-large;" (click)="onDataBound(scheduleObj)">SUBMIT</button>

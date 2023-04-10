@@ -1,0 +1,10 @@
+.space-evenly {
+  width: 100%;
+  justify-content: space-evenly;
+  align-content: space-between;
+  align-items: center;
+}
+
+.input-container {
+  width: 100%;
+}

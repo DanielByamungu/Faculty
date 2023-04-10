@@ -1,0 +1,44 @@
+.radio-btn {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+.radio-btn > input {
+  margin-right: 3px;
+}
+
+.radio-btn > label {
+  margin-right: 2em;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  margin: 1rem;
+  padding: .5rem;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  width: 200px;
+}
+
+thead>tr {
+  background-color: #000000;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #383838;
+  color: white;
+}
+tr:nth-child(odd) {
+  background-color: #818080;
+}
+
+h1 {
+  margin-top: 20px;
+  text-align: center;
+}

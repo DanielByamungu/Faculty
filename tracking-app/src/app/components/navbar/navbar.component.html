@@ -1,0 +1,31 @@
+<header>
+  <nav class="flex-row flex-end">
+    <div class="flex-row" id="logo-container">
+      <img alt="conestoga college logo" src="../../assets/college-logo.jpg" />
+    </div>
+    <div *ngIf="!isMobileView" id="link-container">
+      <ng-container *ngTemplateOutlet="contentLinks"></ng-container>
+    </div>
+    <div *ngIf="isMobileView" id="mobile-link-container">
+      <img
+        id="hamburger-icon"
+        src="../../assets/menu-icon.svg"
+        alt="hamburger icon"
+        *ngIf="!drawerActive"
+        (click)="hamburgerIconClick()"
+      />
+      <div class="flex-col space-around" id="drawer-container">
+        <h2 class="text-center" id="drawer-header">Faculty App</h2>
+        <div class="flex-col text-center flexg-2 mobile-links">
+          <ng-container *ngTemplateOutlet="contentLinks"></ng-container>
+        </div>
+        <button id="btnClose" (click)="closeButtonClick()">Close</button>
+      </div>
+    </div>
+  </nav>
+  <div id="gold-seperator"></div>
+</header>
+
+<ng-template #contentLinks>
+  <ng-content></ng-content>
+</ng-template>

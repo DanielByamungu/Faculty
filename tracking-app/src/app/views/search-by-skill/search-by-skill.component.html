@@ -1,0 +1,97 @@
+<navbar>
+  <navlink linkref="/home" linkval="Home"></navlink>
+  <navlink linkref="/job-postings" linkval="Job Listing"></navlink>
+  <navlink linkref="/management" linkval="Management"></navlink>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+<div id="body">
+  <form class="flex-col flex-center small-form-container"
+        (ngSubmit)="searchFor(applicant, faculty, skill_id, ranking_id)">
+    <h1 class="form-title">Search by skill</h1>
+    <div id="radio-container">
+      <h3>Select User Type</h3>
+      <div class="flex-row input-container" id="user-type-input">
+        <div class="radio-input">
+          <input #applicant type="radio" value="applicant" name="userType" id="applicant" checked/>
+          <label for="applicant">Applicant</label>
+        </div>
+        <div class="radio-input">
+          <input #faculty type="radio" value="faculty" name="userType" id="faculty"/>
+          <label for="faculty">Faculty</label>
+        </div>
+      </div>
+      <br/>
+      <div class="input-container flex-col" id="skill-input">
+        <label for="skill">Choose a Skill:</label>
+        <select #skill_id id="skill" required>
+          <option selected>--------</option>
+          <option *ngFor="let skill of displaySkills" value="{{skill.skill_id}}">
+            {{skill.name}}
+          </option>
+        </select><br/><br/>
+      </div>
+      <div class="input-container flex-col" id="ranking-input">
+        <label for="ranking">Choose a Ranking:</label><br/>
+        <select #ranking_id id="ranking" required>
+          <option selected>--------</option>
+          <option *ngFor="let level of rankings" value="{{level.id}}">
+            {{ level.ranking }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <form-submit inputval="Submit" style="margin: auto"></form-submit>
+  </form>
+
+  <table class="table-container listing-table" *ngIf="!isFaculty && applicantList.length > 0" id="applicantTable">
+    <thead>
+    <tr class="table-bg-grey">
+      <th>Full Name</th>
+      <th>E-Mail</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <tr *ngFor="let applicant of applicantList; let i = index">
+      <td>{{applicant.full_name}}</td>
+      <td>{{applicant.email}}</td>
+      <td>{{applicant.home_phone}}</td>
+      <td>
+        <a routerLink="/**">View Application</a> |
+        <a routerLink="/view-availability/{{applicant.u_id}}/{{applicant.type_id}}">View Availability</a> |
+        <a routerLink="/view-skills/{{applicant.u_id}}">View All Skills</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table class="table-container listing-table" *ngIf="isFaculty && facultyList.length > 0" id="facultyTable">
+    <thead>
+    <tr class="table-bg-grey">
+      <th>Full Name</th>
+      <th>E-Mail</th>
+      <th>Home Phone</th>
+      <th>Mobile Phone</th>
+      <th>Hire Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <tr *ngFor="let faculty of facultyList; let i = index">
+      <td>{{faculty.full_name}}</td>
+      <td>{{faculty.email}}</td>
+      <td>{{faculty.home_phone}}</td>
+      <td>{{faculty.mobile_phone}}</td>
+      <td>{{faculty.hire_date}}</td>
+      <td>
+        <a routerLink="/**">View Application</a> |
+        <a routerLink="/view-course-schedule/{{faculty.u_id}}">View Current Schedule</a> |
+        <a routerLink="/view-availability/{{faculty.u_id}}/{{faculty.type_id}}">View Availability</a> |
+        <a routerLink="/view-skills/{{faculty.u_id}}">View All Skills</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

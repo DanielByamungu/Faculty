@@ -1,0 +1,156 @@
+button {
+  background-color: var(--bg-blue);
+  color: white;
+  border: 0px transparent;
+  padding: 5px;
+  font-size: 1.25em;
+  margin-right: 10px;
+  font-family: var(--segoe-font);
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(3, 3, 107);
+}
+
+h1,
+h2 {
+  font-family: var(--segoe-font);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  font-weight: bolder;
+  text-shadow: 2px 2px black;
+  color: darkgoldenrod;
+}
+
+#title {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#options-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #1cfa6b; /* blue */
+  color: black !important;
+  margin-bottom: 15px;
+}
+.alert > p {
+  color: black !important;
+}
+
+.alert > h1 {
+  color: black !important;
+  text-align: center;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-box {
+  padding: 5px;
+  border: 1px double whitesmoke;
+  width: fit-content;
+  text-align: center;
+  margin-right: 3px;
+  background-color: black;
+  color: darkgoldenrod;
+}
+
+.tab-container {
+  margin: auto;
+}
+
+.management-container {
+  width: fit-content;
+  transform: translateY(10%);
+  margin: auto;
+  padding: 15px;
+}
+
+.management-container > div {
+  margin: 0 auto 30px auto;
+}
+
+.management-container > div > div {
+  margin: auto;
+}
+
+.management-container > div > h2 {
+  text-align: center;
+}
+
+.tab-box > button {
+  background-color: transparent;
+  color: darkgoldenrod;
+}
+
+.tab-box > button:hover {
+  background-color: grey;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.btn-container {
+  margin: auto;
+}
+
+.btn-container > button {
+  width: 185px;
+}
+
+@media screen and (max-width: 710px) {
+  .tab-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .management-container {
+    width: 80%;
+  }
+
+  #staff-management-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #admin-management-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #admin-management-container > .btn-container {
+    margin: auto;
+    width: 185px;
+  }
+
+  #admin-management-container > .btn-container > button {
+    margin-bottom: 10px;
+  }
+
+  #uploadExcelForm > div {
+    margin: auto;
+    width: 185px;
+  }
+}

@@ -1,0 +1,23 @@
+<navbar>
+  <navlink [active]="true" linkref="home" linkval="Home"></navlink>
+  <navlink [active]="false" linkref="/job-postings" linkval="Job Listings"></navlink>
+  <navlink [active]="false" linkval="Sign out" [signOut]="true"></navlink>
+</navbar>
+
+<div id="hero-container">
+  <img
+    src="../../../assets/hero-banner.jpg"
+    alt="Group of people looking at laptop"
+    id="hero-banner"
+  />
+</div>
+
+<div class="text-center" id="header-container">
+  <h1>Name: {{user.full_name}}</h1>
+  <h1>Email: {{user.email}}</h1>
+  <h1>Home phone: {{user.home_phone}}</h1>
+  <div class="button-container">
+    <a routerLink="/view-course-schedule/{{user.u_id}}" class="text-center router-button" id="apply-button">View Course Schedules</a>
+    <a routerLink="/job-postings" class="text-center router-button">View Job Postings</a>
+  </div>
+</div>

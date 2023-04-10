@@ -1,0 +1,32 @@
+<navbar>
+  <navlink linkref="../home" linkval="Home"></navlink>
+  <navlink linkref="../login" linkval="Sign in"></navlink>
+</navbar>
+<form
+  class="small-form-container"
+  #registerForm="ngForm"
+  (ngSubmit)="onSubmit(registerForm)"
+>
+  <h1 class="form-title">Register</h1>
+  <div *ngIf="isError" id="emailError" >
+    <error-message error="{{ errorMessage1 }}"></error-message>
+  </div>
+  <div class="input-container">
+    <form-input type="email" inputName="email" text="E-mail"></form-input>
+  </div>
+  <div class="input-container">
+    <form-input
+      type="password"
+      inputName="password"
+      text="Password"
+    ></form-input>
+    <div *ngIf="isError" id="pswrdError">
+      <error-message error="{{ errorMessage2 }}"></error-message>
+    </div>
+  </div>
+  <form-submit inputval="Submit"></form-submit>
+</form>
+
+<div *ngIf="this.isLogin">
+  <h5>You have succesfully Registered</h5>
+</div>

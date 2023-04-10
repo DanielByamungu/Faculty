@@ -1,0 +1,50 @@
+@media screen and (max-width: 600px) {
+  img {
+    width: 1920px !important;
+    height: auto;
+  }
+
+  #hero-banner {
+    transform: translateX(-35%);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  img {
+    width: 1920px !important;
+    height: auto;
+  }
+
+  #hero-banner {
+    transform: translateX(-45%);
+  }
+}
+
+#hero-container {
+  width: 100vw;
+  overflow: hidden;
+}
+
+#header-container {
+  padding: 3%;
+}
+
+img {
+  width: 100vw;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-family: var(--segoe-font);
+}
+
+a {
+  position: relative;
+  top: 30px;
+  background-color: var(--bg-blue);
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 20px;
+  font-family: var(--segoe-font);
+}

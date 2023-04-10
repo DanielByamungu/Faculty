@@ -1,0 +1,42 @@
+<navbar>
+  <navlink *ngIf="user.type_id < 3" [active]="false" linkval="Management" linkref="/management"></navlink>
+  <navlink [active]="false" linkval="Job Listings" linkref="/job-postings"></navlink>
+  <navlink [signOut]="true" [active]="false" linkval="Sign out"></navlink>
+</navbar>
+
+<div *ngIf="actionMessage !== null" class="alert info" id="form-info-container">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h1>
+    Action Message!
+  </h1>
+  <br />
+  <p>
+    {{actionMessage}}
+  </p>
+  <br />
+</div>
+
+<h1>When can you teach?</h1>
+
+<form class="flex-col flex-center" id="availabilityForm" [formGroup]="availability" (ngSubmit)="onSubmit()">
+  <div class="form-group" *ngFor="let day of days">
+    <label>{{day.day_of_week}}:</label>
+    <div  class="dropbox-container">
+      <select name="{{day.day_of_week.toLowerCase()}}Start" id="{{day.day_of_week.toLowerCase()}}Start" formControlName="{{day.day_of_week.toLowerCase()}}Start">
+        <option value="default" [defaultSelected]="true">-----</option>
+        <option *ngFor="let time of times" value="{{time.Hour}}:{{time.Minute}}">
+          {{time.Display}}
+        </option>
+      </select>
+      <h2>-</h2>
+      <select name="{{day.day_of_week.toLowerCase()}}End" id="{{day.day_of_week.toLowerCase()}}End" formControlName="{{day.day_of_week.toLowerCase()}}End">
+        <option value="default" [defaultSelected]="true">-----</option>
+        <option *ngFor="let time of times" value="{{time.Hour}}:{{time.Minute}}">
+          {{time.Display}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <form-submit id="submitButton" inputval="Submit"></form-submit>
+</form>

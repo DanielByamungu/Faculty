@@ -1,0 +1,29 @@
+<navbar>
+  <navlink *ngIf="user.type_id < 4" [active]="false" linkref="/management" linkval="Management"></navlink>
+  <navlink [active]="false" linkref="/job-postings" linkval="Job Postings"></navlink>
+  <navlink [active]="false" [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+<form class="flex-col small-form-container" #editJobPosting = 'ngForm' (ngSubmit)="submit()">
+  <h1 class="form-title">Edit Job Posting</h1>
+  <div class="input-text">
+    <label for="termId">Term:</label>
+    <select name="termId" id="termId" [(ngModel)]="term.term_id" #term_id="ngModel" (change)="onSelectTerm(term_id)">
+      <option *ngFor="let term of termList" [value]="term.term_id">{{term.term_name}}</option>
+    </select>
+  </div>
+
+  <div class="input-text">
+    <label for="courseName">Course Name:</label>
+    <select name="courseName" id="courseName" [(ngModel)]="course.course_id" #course_name="ngModel" (change)="onSelectCourse(course_name, course_code)">
+      <option *ngFor="let job of termJobList" [value]="job.course_id">{{job.course_name}}</option>
+    </select>
+  </div>
+
+  <div class="input-text">
+    <label for="courseCode"> Course Code: </label>
+    <input type="text" name="courseCode" id="courseCode" [(ngModel)]="course.course_code" #course_code="ngModel" readonly />
+  </div>
+
+  <input type="hidden" name="jobId" id="jobId" [(ngModel)]="posting.job_id" #job_id="ngModel" >
+  <form-submit inputval="Submit" style="margin: auto"></form-submit>
+</form>

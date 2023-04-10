@@ -1,0 +1,23 @@
+a {
+  font-size: 1em;
+  font-family: var(--segoe-font);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.space-evenly {
+  width: 100%;
+  justify-content: space-evenly;
+  align-content: space-between;
+  align-items: center;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.input-validation-error {
+  border: 2px solid #dc3545; /* same red as text-danger */
+  background-color: #faebd7; /* antique white */
+}
+

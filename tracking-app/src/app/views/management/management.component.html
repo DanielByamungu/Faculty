@@ -1,0 +1,79 @@
+<navbar>
+  <navlink linkref="/home" linkval="Home"></navlink>
+  <navlink linkref="/job-postings" linkval="Job Listing"></navlink>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+<div class="flex-col" id="options-container">
+  <h1 id="title">Management</h1>
+
+  <div *ngIf="successMsg !== null" class="alert" id="form-info-container">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <h1> Action Success!! </h1>
+    <p>{{successMsg}}</p>
+  </div>
+
+  <div class="flex-row tab-container">
+    <div class="tab-box">
+      <button (click)="tabClickEvent(1)">
+        Courses Management
+      </button>
+    </div>
+    <div class="tab-box">
+      <button (click)="tabClickEvent(2)">
+        Job Posting Management
+      </button>
+    </div>
+    <div class="tab-box">
+      <button (click)="tabClickEvent(3)">
+        Staffing Management
+      </button>
+    </div>
+    <div class="tab-box" *ngIf="user.type_id == 1">
+      <button (click)="tabClickEvent(4)">
+        Admin Management
+      </button>
+    </div>
+  </div>
+
+  <div class="management-container small-form-container">
+    <div *ngIf="managementTab === 1">
+      <h2>Courses Management</h2>
+      <div>
+        <button routerLink="/add-course">Add Course</button>
+        <button routerLink="/view-courses">List Courses</button>
+      </div>
+    </div>
+    <div *ngIf="managementTab === 2">
+      <h2>Job Posting Management</h2>
+      <div class="flex-row">
+        <button routerLink="/add-job-posting">Add Posting</button>
+        <button routerLink="/job-postings">List Postings</button>
+        <button routerLink="/search-by-skill">Search By Skills</button>
+      </div>
+    </div>
+    <div *ngIf="managementTab === 3">
+      <h2>Staffing Management</h2>
+      <div class="flex-row" id="staff-management-container">
+        <button routerLink="/all-applications">View Applications</button>
+        <button routerLink="/view-faculty">View Faculty</button>
+        <button routerLink="/view-applicants">View Applicants</button>
+        <button routerLink="/add-faculty-skills">Update Faculty Skill</button>
+      </div>
+    </div>
+    <!--  Admins ONLY-->
+    <div *ngIf="managementTab === 4" id="admin-management-container">
+      <h2>Admin Management</h2>
+      <div class="btn-container">
+        <button routerLink="/faculty/form/coordinator">Add Coordinator</button>
+        <button routerLink="/faculty/form/faculty">Add Faculty</button><br/><br/>
+      </div>
+        <form class="flex-col" id="uploadExcelForm" [formGroup]="uploadExcelForm">
+          <div>
+            <label for="sheet">Extract Data From Excel Sheet: </label>
+            <input #sheet id="sheet" type="file" name="sheet" accept=".xls, .xlsx" formControlName="sheet" (change)="onchange(sheet, $event)" multiple="false" />
+          </div>
+        </form>
+      </div>
+  </div>
+  <br/><br/>
+</div>

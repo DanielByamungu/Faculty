@@ -1,0 +1,155 @@
+#body {
+  background-color: #383736!important;
+  height: 100%;
+}
+h1, h3 {
+  font-family: var(--segoe-font);
+}
+
+.table-container listing-table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  justify-content: space-between;
+  align-items: center;
+}
+#facultyTable, #applicantTable {
+  color: white;
+  background-color: black;
+  box-shadow: 0px 2px 5px 3px whitesmoke;
+}
+
+form {
+  margin: auto;
+  width: fit-content;
+  background-color: darkgoldenrod;
+}
+
+input {
+  padding: 5px;
+}
+
+input[type=submit] {
+  background-color: var(--bg-blue);
+  color: white;
+  border-top: 1px solid black;
+  border-left: 0 transparent;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+input[type=text] {
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
+  border-right: transparent;
+  border-bottom: 1px solid grey;
+}
+
+.data-container {
+  position: relative;
+  top: 5vh;
+}
+
+@media screen and (max-width: 620px) {
+  h1, h3 {
+    font-size: 1rem;
+  }
+
+  #search-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type=text] {
+    width: 100px;
+    border-right: 1px solid black;
+  }
+
+  input[type=submit] {
+    border-left: 1px solid black;
+    border-radius: 0;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+#deleteButton {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  font-size: 1em;
+  font-weight: lighter;
+  color: blue;
+}
+
+#deleteButton:hover {
+  cursor: pointer;
+}
+
+#actionLink {
+  color: blue;
+  font-size: 1em;
+  font-weight: thin;
+}
+
+#radio-container {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.input-container {
+  width: 100%;
+}
+
+select {
+  padding: 5px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.radio-input {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+#skill-input, #ranking-input {
+  width: 80%;
+  margin: 10px auto 0 auto;
+}
+
+#ranking-input {
+  margin-bottom: 20px;
+}
+
+#user-type-input {
+  justify-content: space-evenly;
+}
+
+.table-container listing-table {
+  display: block!important;
+}
+
+a:link {
+  color: darkgoldenrod;
+  text-decoration: unset;
+}
+
+a:visited {
+  color: darkgoldenrod;
+  text-decoration: unset;
+}
+
+a:hover {
+  font-size: large;
+  font-weight: bolder;
+}

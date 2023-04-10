@@ -1,0 +1,121 @@
+<navbar>
+  <navlink *ngIf="user.type_id < 4" [active]="false" linkref="/management" linkval="Management"></navlink>
+  <navlink [active]="false" linkref="/job-postings" linkval="Job Postings"></navlink>
+  <navlink [active]="false" [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+<h1 id="delete-header">Confirm Delete</h1>
+<form *ngIf="table=='COURSES'" class="form-container container" (submit)="deleteObject('course')">
+  <table class="table-container listing-table tableDisplay">
+    <thead>
+      <tr class="table-bg-grey">
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Section #</th>
+        <th>Term</th>
+      </tr>
+    </thead>
+    <tbody class="table-data-container">
+      <tr>
+        <td>{{deleteCourse.course_code}}</td>
+        <td>{{deleteCourse.course_name}}</td>
+        <td>{{deleteCourse.section_id}}</td>
+        <td>{{getTermName(deleteCourse.term_id)}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="flex-row button-container">
+    <button (click)="navigateBackToPage()">Cancel</button>
+    <button class="confirmBtn" type="submit">Confirm</button>
+  </div>
+</form>
+
+<form *ngIf="table=='JOBPOSTINGS'" class="form-container container" (submit)="deleteObject('jobposting')">
+  <table class="table-container listing-table tableDisplay">
+    <thead>
+    <tr class="table-bg-grey">
+      <th>Code</th>
+      <th>Name</th>
+      <th>Term</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <tr>
+      <td>{{showJobPosting.course_code}}</td>
+      <td>{{showJobPosting.course_name}}</td>
+      <td>{{getTermName(showJobPosting.term_id)}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="flex-row button-container">
+    <button (click)="navigateBackToPage()">Cancel</button>
+    <button class="confirmBtn" type="submit">Confirm</button>
+  </div>
+</form>
+
+<form *ngIf="table=='APPLICATIONS'" class="form-container container" (submit)="deleteObject('application')">
+  <table class="table-container listing-table tableDisplay">
+    <thead>
+    <tr class="table-bg-grey">
+      <th>Job</th>
+      <th>Full Name</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <tr>
+      <td>{{getCourse.course_name}}</td>
+      <td>{{getUser.full_name}}</td>
+      <td>{{getStatus.s_name}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="flex-row button-container">
+    <button (click)="navigateBackToPage()">Cancel</button>
+    <button class="confirmBtn" type="submit">Confirm</button>
+  </div>
+</form>
+
+<form *ngIf="table=='APPLICANTS'" class="form-container container" (submit)="deleteObject('applicant')">
+  <table class="table-container listing-table tableDisplay">
+    <thead>
+    <tr class="table-bg-grey">
+      <th>Full Name</th>
+      <th>E-Mail</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <tr>
+      <td>{{deleteApplicant.full_name}}</td>
+      <td>{{deleteApplicant.email}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="flex-row button-container">
+    <button (click)="navigateBackToPage()">Cancel</button>
+    <button class="confirmBtn" type="submit">Confirm</button>
+  </div>
+</form>
+
+<form *ngIf="table=='FACULTY'" class="form-container container" (submit)="deleteObject('faculty')">
+  <table class="table-container listing-table tableDisplay">
+    <thead>
+    <tr class="table-bg-grey">
+      <th>Full Name</th>
+      <th>E-Mail</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <tr>
+      <td>{{deleteFaculty.full_name}}</td>
+      <td>{{deleteFaculty.email}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="flex-row button-container">
+    <button (click)="navigateBackToPage()">Cancel</button>
+    <button class="confirmBtn" type="submit">Confirm</button>
+  </div>
+</form>
+
+

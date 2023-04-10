@@ -1,0 +1,38 @@
+<navbar>
+  <navlink [active]="false" linkref="../home" linkval="Home"></navlink>
+  <navlink [active]="false" linkref="../register" linkval="Sign up"></navlink>
+</navbar>
+
+<div class="container" style="text-align: center;">
+  <div *ngIf="actionMessage !=null" class="alert info" id="form-info-container">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <h1>
+      Action Message!
+    </h1>
+    <br/>
+    <p>
+      {{actionMessage}}
+    </p>
+    <br/>
+  </div>
+</div>
+
+<form class="small-form-container" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <h1 class="form-title">Login</h1>
+  <div class="input-container">
+    <div *ngIf="isError" id="emailError">
+      <error-message error="{{ errorMessage }}"></error-message>
+    </div>
+    <form-input type="text" text="E-mail" inputName="email"></form-input>
+    <form-input type="password" inputName="password" text="Password"></form-input>
+  </div>
+  <div class="flex-row space-evenly">
+    <a routerLink="/register">Sign Up</a>
+    <form-submit inputval="Submit"></form-submit>
+  </div>
+</form>
+
+<div class="col-md-4 offset-4 mt-5" *ngIf="this.isLogin">
+  <h1>You are logged in</h1>
+  <button (click)="logout()">Log-out</button>
+</div>

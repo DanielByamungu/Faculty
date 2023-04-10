@@ -1,0 +1,54 @@
+<navbar>
+  <navlink linkref="/home" linkval="Home"></navlink>
+  <navlink linkref="/job-postings" linkval="Job Listing"></navlink>
+  <navlink linkref="/management" linkval="Management"></navlink>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+<form class="flex-col small-form-container" id="ratingForm" #facultyRatingForm = 'ngForm' (ngSubmit)="onSubmit(facultyRatingForm)">
+  <h1 class="form-title">Rating Faculty</h1>
+ <div class="input-text">
+   <input type="hidden" name="userId" id="userId" [(ngModel)]="faculty.u_id" #facultyId = 'ngModel'/>
+    <label for="fullName"> Full Name: </label>
+    <input type="text" name="fullName" id="fullName" [(ngModel)]="faculty.full_name" #fullName="ngModel" disabled="true"/>
+  </div>
+
+  <div class="input-text">
+    <label for="email"> Email: </label>
+    <input type="email" name="email" id="email" [(ngModel)]="faculty.email" #email="ngModel" disabled="true"/>
+  </div>
+
+  <div class="input-text">
+    <label for="hireDate"> Hire Date: </label>
+    <input type="date" name="hireDate" id="hireDate" [(ngModel)]="faculty.hire_date" #hireDate="ngModel" disabled="true"/>
+  </div>
+
+  <div class="input-text">
+    <label for="homePhone"> Home Phone: </label>
+    <input type="tel" name="homePhone" id="homePhone" [(ngModel)]="faculty.home_phone" #homePhone="ngModel"/>
+  </div>
+
+  <div class="input-text">
+    <label for="mobilePhone"> Mobile Phone: </label>
+    <input type="tel" name="mobilePhone" id="mobilePhone" [(ngModel)]="faculty.mobile_phone" #mobilePhone="ngModel"/>
+  </div>
+
+  <div class="input-text">
+    <label for="rating">Rating:</label>
+    <select id="rating" name="rating" [(ngModel)]="newRating.rating_value">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+
+  <div class="input-text">
+    <label for="avgRating"> Average Rating: </label>
+    <input type="number" name="avgRating" id="avgRating" value="{{averageRating}}" readonly/>
+  </div>
+
+  <div style="margin: auto;">
+    <form-submit inputval="Submit"></form-submit>
+  </div>
+</form>

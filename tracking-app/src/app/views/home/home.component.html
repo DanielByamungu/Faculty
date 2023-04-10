@@ -1,0 +1,22 @@
+<navbar>
+  <navlink [active]="true" linkref="home" linkval="Home"></navlink>
+  <navlink *ngIf="isUserLoggedIn && user.type_id < 3" [active]="false" linkref="/management" linkval="Management"></navlink>
+  <navlink *ngIf="isUserLoggedIn === false" [active]="false" linkref="../register" linkval="Sign up"></navlink>
+  <navlink *ngIf="isUserLoggedIn === false" [active]="false" linkref="../login" linkval="Sign in"></navlink>
+  <navlink *ngIf="isUserLoggedIn" [active]="false" linkref="/job-postings" linkval="Job Listings"></navlink>
+  <navlink *ngIf="isUserLoggedIn" [active]="false" linkval="Sign out" [signOut]="true"></navlink>
+</navbar>
+
+<div id="hero-container">
+  <img
+    src="../../../assets/hero-banner.jpg"
+    alt="Group of people looking at laptop"
+    id="hero-banner"
+  />
+</div>
+
+<div class="text-center" id="header-container">
+  <h1>Want an opportunity to teach the next generation?</h1>
+  <h1>Think Conestoga.</h1>
+  <a routerLink="/job-postings" class="text-center" id="apply-button">View Jobs</a>
+</div>

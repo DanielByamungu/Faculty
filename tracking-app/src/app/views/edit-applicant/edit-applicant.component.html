@@ -1,0 +1,53 @@
+<navbar>
+  <navlink *ngIf="user.type_id < 3" [active]="false" linkref="/management" linkval="Management"></navlink>
+  <navlink [active]="false" linkref="/job-postings" linkval="Job Postings"></navlink>
+  <navlink [active]="false" [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+<form class="flex-col small-form-container" id="editApplicantForm" #editApplicantForm='ngForm' (ngSubmit)="submit(editApplicantForm)">
+  <h1 class="form-title">Edit Applicant</h1>
+  <div *ngIf="isError" id="fullNameError">
+    <error-message error="{{ errorMessage1 }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="fullName"> Full Name: </label>
+    <input type="text" name="fullName" id="fullName" [(ngModel)]="applicant.full_name" #fullName="ngModel"/>
+  </div>
+
+  <div *ngIf="isError" id="emailError">
+    <error-message error="{{ errorMessage2 }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="email"> Email: </label>
+    <input type="email" name="email" id="email" [(ngModel)]="applicant.email" #email="ngModel"/>
+  </div>
+
+  <div *ngIf="isError" id="homePhoneError">
+    <error-message error="{{ errorMessage3 }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="homePhone"> Home Phone: </label>
+    <input type="tel" name="homePhone" id="homePhone" [(ngModel)]="applicant.home_phone" #homePhone="ngModel"/>
+  </div>
+
+  <div *ngIf="isError" id="mobilePhoneError">
+    <error-message error="{{ errorMessage4 }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="mobilePhone"> Mobile Phone: </label>
+    <input type="tel" name="mobilePhone" id="mobilePhone" [(ngModel)]="applicant.mobile_phone" #mobilePhone="ngModel"/>
+  </div>
+
+  <div *ngIf="isError" id="pswrdError">
+    <error-message error="{{ errorMessage5}}"></error-message>
+  </div>
+  <div class="input-text" *ngIf="user.type_id == 1">
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" [(ngModel)]="applicant.pswrd" #password='ngModel' />
+  </div>
+
+  <input type="hidden" name="facultyId" id="facultyId" [(ngModel)]="applicant.u_id" #facultyId='ngModel'/>
+  <input type="hidden" name="typeId" id="typeId" [(ngModel)]="applicant.type_id" #typeId='ngModel'/>
+
+  <form-submit inputval="Submit" style="margin: auto"></form-submit>
+</form>

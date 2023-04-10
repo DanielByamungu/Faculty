@@ -1,0 +1,23 @@
+<navbar>
+  <navlink linkref="/home" linkval="Home"></navlink>
+  <navlink *ngIf="user.type_id < 3" linkref="/management" linkval="Management"></navlink>
+  <navlink linkref="/job-postings" linkval="Job Listing"></navlink>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+<h1>Skills List For {{userName}}</h1>
+<table class="center">
+    <thead>
+      <tr>
+        <th class="title"> SKILL </th>
+        <th class="title"> LEVEL </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let skill of userSkills; let i = index">
+        <td class="text-left-align" style="">{{getSkillName(skill.skill_id)}}</td>
+        <td>
+          {{getRankingName(skill.ranking_id)}}
+        </td>
+      </tr>
+    </tbody>
+  </table>

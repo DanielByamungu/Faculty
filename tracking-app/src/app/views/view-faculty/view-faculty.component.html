@@ -1,0 +1,67 @@
+<navbar>
+  <navlink *ngIf="user.type_id < 3" linkref="/management" linkval="Management"></navlink>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+<div class="container" style="text-align: center;">
+  <div *ngIf="actionMessage !=null" class="alert info" id="form-info-container">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <h1>
+      Action Message!
+    </h1>
+    <br/>
+    <p>
+      {{actionMessage}}
+    </p>
+    <br/>
+  </div>
+</div>
+
+<div class=" data-container">
+  <div class="title-container">
+    <div style="text-align: center;">
+      <h1>Faculty Members:</h1>
+      <h3>By filter: {{filterType}}</h3>
+    </div><br/>
+
+    <form class="flex-col flex-center" (ngSubmit)="filterTable(filterByName, 'NAME')" style="background: transparent;">
+      <div class="search-container flex-row" >
+        <input #filterByName type="text" placeholder="Full Name"/><br/>
+        <input type="submit" value="Search"/>
+      </div>
+    </form><br/>
+
+    <form class="flex-col flex-center" (ngSubmit)="filterTable(filterByEmail, 'EMAIL')" style="background: transparent;">
+      <div class="search-container flex-row" >
+        <input #filterByEmail type="text" placeholder="E-mail"/><br/>
+        <input type="submit" value="Search"/>
+      </div>
+    </form><br/>
+
+  <table class="table-container listing-table" style="margin-top: 2rem;">
+    <thead>
+      <tr class="table-bg-grey">
+        <th>Full Name</th>
+        <th>E-Mail</th>
+        <th>Hire Date</th>
+        <th>Average Rating</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="table-data-container">
+      <tr *ngFor="let faculty of facultyList; let i = index">
+        <td>{{faculty.full_name}}</td>
+        <td>{{faculty.email}}</td>
+        <td>{{faculty.hire_date}}</td>
+        <td>{{facultyAvgList[i]}}</td>
+        <td>
+          <a routerLink="/edit-faculty/{{faculty.u_id}}">Edit</a> |
+          <a routerLink="/delete/view-faculty/faculty/{{faculty.u_id}}">Delete</a> |
+          <a routerLink="/edit-faculty-schedule/{{faculty.u_id}}">Schedule</a> |
+          <a routerLink="/faculty-rating/{{faculty.u_id}}">Rate</a> |
+          <a routerLink="/view-skills/{{faculty.u_id}}/{{faculty.type_id}}">Skills</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

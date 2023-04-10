@@ -1,0 +1,75 @@
+<navbar>
+  <navlink [active]="false" [signOut]="true" linkval="Sign out"></navlink>
+  <navlink
+    [active]="false"
+    linkref="/management"
+    linkval="Management"
+  ></navlink>
+</navbar>
+
+<div class="flex-col data-container">
+  <div class="title-container">
+    <div style="text-align: center;">
+      <h1>List of All Applications</h1>
+    </div>
+    <table class="table-container listing-table">
+      <thead>
+        <tr class="table-bg-grey">
+          <th>Job</th>
+          <th>Full Name</th>
+          <th>Available Term</th>
+          <th>Vacation Planned</th>
+          <th>Available Waterloo</th>
+          <th>Available Guelph</th>
+          <th>Ontario Resident</th>
+          <th>Hours Per Week</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody class="table-data-container">
+        <tr *ngFor="let app of applications; let i = index ">
+          <td>{{courseName[i].course_name}}</td>
+          <td>
+            <a routerLink="/applicant/view/{{app.u_id}}">
+              {{applicantNames[i].full_name}}
+            </a>
+          </td>
+          <td *ngIf="app.available_term; else falseBlock">YES</td>
+          <ng-template #falseBlock>
+            <td>NO</td>
+          </ng-template>
+          <td *ngIf="app.vacation_planned; else falseBlock">YES</td>
+          <ng-template #falseBlock>
+            <td>NO</td>
+          </ng-template>
+          <td *ngIf="app.available_in_person_waterloo; else falseBlock">YES</td>
+          <ng-template #falseBlock>
+            <td>NO</td>
+          </ng-template>
+          <td *ngIf="app.available_in_person_guelph; else falseBlock">YES</td>
+          <ng-template #falseBlock>
+            <td>NO</td>
+          </ng-template>
+          <td *ngIf="app.residing_ontario; else falseBlock">YES</td>
+          <ng-template #falseBlock>
+            <td>NO</td>
+          </ng-template>
+          <td>{{app.hrs_week}} Hours</td>
+            <td>
+              <form #changeApplicationStatus = 'ngForm'>
+                <select name="applicationStatus" id="applicationStatus" [(ngModel)]="app.s_id" #applicationStatus="ngModel" (change)="onChange(applicationStatus, app.app_id)">
+                  <option [value]="appStatus[i].s_id">{{appStatus[i].s_name}}</option>
+                  <option *ngFor="let status of statusList" [value]="status.s_id">{{status.s_name}}</option>
+                </select>
+              </form>
+            </td>
+          <td>
+            <a routerLink="/view-skills/{{app.u_id}}">  View Applicant Skills</a> | <br/>
+            <a routerLink="/view-availability/{{app.u_id}}/4"> View Applicant Availability </a> | <br/>
+            <a routerLink="/delete/all-applications/applications/{{app.app_id}}"> Delete </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

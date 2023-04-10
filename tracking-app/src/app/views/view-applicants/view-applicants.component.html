@@ -1,0 +1,39 @@
+<navbar>
+  <navlink *ngIf="user.type_id < 3" linkref="/management" linkval="Management"></navlink>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+<div class=" data-container">
+  <div class="title-container">
+    <div style="text-align: center;">
+      <h1>View All Applicants:</h1>
+    </div>
+    <br/>
+
+    <table class="table-container listing-table" style="margin-top: 2rem;">
+      <thead>
+      <tr class="table-bg-grey">
+        <th>Full Name</th>
+        <th>E-Mail</th>
+        <th>Home Phone</th>
+        <th>Mobile Phone</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody class="table-data-container">
+      <tr *ngFor="let applicant of applicantList">
+        <td>{{applicant.full_name}}</td>
+        <td>{{applicant.email}}</td>
+        <td>{{applicant.home_phone}}</td>
+        <td>{{applicant.mobile_phone}}</td>
+        <td>
+          <a routerLink="/edit-applicant/{{applicant.u_id}}">Edit</a> |
+          <a routerLink="/delete/view-applicants/applicants/{{applicant.u_id}}">Delete</a> |
+          <a routerLink="/view-skills/{{applicant.u_id}}/{{applicant.type_id}}">Skills</a> |
+          <a routerLink="/view-availability/{{applicant.u_id}}/4">Availability</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

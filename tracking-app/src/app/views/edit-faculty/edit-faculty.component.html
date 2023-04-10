@@ -1,0 +1,64 @@
+<navbar>
+  <navlink *ngIf="user.type_id < 3" [active]="false" linkref="/management" linkval="Management"></navlink>
+  <navlink [active]="false" linkref="/job-postings" linkval="Job Postings"></navlink>
+  <navlink [active]="false" [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+
+<form class="flex-col small-form-container" id="facultyForm" #editFacultyForm='ngForm' (ngSubmit)="submit(editFacultyForm)">
+  <h1 class="form-title">Edit Faculty Member: {{faculty.full_name}}</h1>
+  <div *ngIf="isError" id="fullNameError">
+    <error-message error="{{ errorMessage1 }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="fullName"> Full Name: </label>
+    <input type="text" name="fullName" id="fullName" [(ngModel)]="faculty.full_name" #fullName="ngModel"/>
+  </div>
+
+  <div *ngIf="isError" id="emailError">
+    <error-message error="{{ errorMessage2 }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="email"> Email: </label>
+    <input type="email" name="email" id="email" [(ngModel)]="faculty.email" #email="ngModel"/>
+  </div>
+
+  <div class="input-text">
+    <label for="hireDate"> Hire Date: </label>
+    <input type="date" name="hireDate" id="hireDate" [(ngModel)]="faculty.hire_date" #hireDate="ngModel"/>
+  </div>
+
+  <div *ngIf="isError" id="homePhoneError">
+    <error-message error="{{ errorMessage3 }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="homePhone"> Home Phone: </label>
+    <input type="tel" name="homePhone" id="homePhone" [(ngModel)]="faculty.home_phone" #homePhone="ngModel"/>
+  </div>
+
+  <div *ngIf="isError" id="mobilePhoneError">
+    <error-message error="{{ errorMessage4 }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="mobilePhone"> Mobile Phone: </label>
+    <input type="tel" name="mobilePhone" id="mobilePhone" [(ngModel)]="faculty.mobile_phone" #mobilePhone="ngModel"/>
+  </div>
+
+  <div class="input-text">
+    <label for="avgRating">Average Rating:</label>
+    <input type="number" name="avgRating" id="avgRating" [(ngModel)]="faculty.rating_avg" #avgRating='ngModel' readonly/>
+  </div>
+
+  <div *ngIf="isError" id="pswrdError">
+    <error-message error="{{ errorMessage5}}"></error-message>
+  </div>
+  <div class="input-text" *ngIf="user.type_id == 1">
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" [(ngModel)]="faculty.pswrd" #password='ngModel' />
+  </div>
+
+    <input type="hidden" name="facultyId" id="facultyId" [(ngModel)]="faculty.u_id" #facultyId='ngModel'/>
+    <input type="hidden" name="typeId" id="typeId" [(ngModel)]="faculty.type_id" #typeId='ngModel'/>
+
+  <form-submit inputval="Submit" style="margin: auto"></form-submit>
+</form>

@@ -1,0 +1,58 @@
+<navbar>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+  <navlink
+    linkref="/management"
+    linkval="Management"
+  ></navlink>
+</navbar>
+
+<div class="flex-col data-container">
+  <div class="title-container flex-row">
+    <div style="color: darkgoldenrod; font-weight: bolder; text-shadow: 2px 2px black;">
+      <h1>All Courses</h1>
+      <h3>By filter: {{filterType}}</h3><br/>
+      <input type="checkbox" id="vacantCourses" [(ngModel)]="isChecked" (change)="checkBoxChanged()" />
+      <label class="ml-1" style="font-weight: bold; text-align: right;">SHOW COURSES WITH NO TEACHER</label>
+    </div>
+
+    <form style="margin-right: .5rem;" class="flex-col flex-center" (ngSubmit)="filterTable(filterByName, 'NAME')">
+      <div class="search-container flex-row">
+        <input #filterByName type="text" placeholder="Course Name"/>
+        <input type="submit" value="Search"/>
+      </div>
+    </form>
+    <form class="flex-col flex-center" (ngSubmit)="filterTable(filterByCode, 'CODE')">
+    <div class="search-container flex-row">
+        <input #filterByCode type="text" placeholder="Course Code"/>
+        <input type="submit" value="Search"/>
+      </div>
+    </form>
+  </div>
+
+  <table class="table-container listing-table" id="tableDisplayVacant">
+    <thead>
+    <tr class="table-bg-grey">
+      <th> ID # </th>
+      <th>Course Code</th>
+      <th>Course Name</th>
+      <th>Section #</th>
+      <th>Term</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <tr *ngFor="let c of courses">
+      <td>{{c.course_id}}</td>
+      <td>{{c.course_code}}</td>
+      <td>{{c.course_name}}</td>
+      <td>{{c.section_id}}</td>
+      <td>{{getTermName(c.term_id)}}</td>
+      <td>
+        <a class="actionLink" routerLink="/edit-course/{{c.course_id}}">Edit</a> |
+        <a class="actionLink" routerLink="/view-course-schedule/{{c.course_id}}">Schedule</a> |
+        <a class="actionLink" routerLink="/delete/view-courses/courses/{{c.course_id}}">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,174 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-schedule/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+
+
+:root {
+  --segoe-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --bg-blue: #3cadff;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  background-color: #383736!important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-red {
+  color: red;
+}
+
+form {
+  background-color: darkgoldenrod;
+}
+
+.form-title {
+  font-family: var(--segoe-font);
+  font-weight: 400;
+  font-size: 2em;
+  color: #00000090;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.small-form-container {
+  box-shadow: 0px 2px 5px 3px whitesmoke;
+  width: 30vw;
+  height: auto;
+  margin: auto;
+  transform: translateY(50%);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-table {
+  width: fit-content;
+  text-align: center;
+  margin-top: 15rem;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  font-family: var(--segoe-font);
+}
+
+.listing-table > thead > tr > th {
+  padding: 10px;
+}
+
+.left-border-radius {
+  border-top-left-radius: 10px;
+}
+
+.right-border-radius {
+  border-top-right-radius: 10px;
+}
+
+.table-right-border {
+  border-right: 1px solid black;
+}
+
+.table-left-border {
+  border-left: 1px solid black;
+}
+
+.table-data-container > tr {
+  border: 1px solid grey;
+  color: darkgoldenrod;
+  background-color: black;
+  text-shadow: 2px 2px #383736;
+}
+
+.table-bg-grey {
+  background-color: grey;
+  color: white;
+  font-family: var(--segoe-font);
+}
+
+.table-data-container > tr > td {
+  padding: 10px;
+  margin: auto;
+}
+
+.table-data-container > tr:nth-child(even) {
+  background-color: darkgoldenrod;
+  color: black!important;
+  text-shadow: 1.25px 1.25px #383736;
+}
+
+@media screen and (max-width: 2560px) {
+  .small-form-container {
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .small-form-container {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .small-form-container {
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .small-form-container {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .small-form-container {
+    width: 80vw;
+  }
+}
+
+.input-validation-error {
+  border: 2px solid #dc3545; /* same red as text-danger */
+  background-color: #faebd7; /* antique white */
+}
+
+.e-info {
+  margin: 1rem;
+}

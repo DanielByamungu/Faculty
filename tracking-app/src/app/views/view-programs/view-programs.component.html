@@ -1,0 +1,32 @@
+<navbar>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+  <navlink
+    [active]="false"
+    linkref="/management"
+    linkval="Management"
+  ></navlink>
+</navbar>
+
+<div class="flex-col data-container">
+  <div class="title-container flex-row">
+    <div>
+      <h1>All Programs </h1>
+    </div>
+  </div>
+  <table class="table-container listing-table">
+    <thead>
+    <tr class="table-bg-grey">
+      <th>Program Name</th>
+      <th>Coordinator Name</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody class="table-data-container">
+    <tr *ngFor="let t of tableArray">
+      <td>{{t.program_name}}</td>
+      <td>{{t.coord_name}}</td>
+      <td><a id="actionLink" routerLink="/edit-programs/{{t.program_name}}">Edit</a> | <button id="deleteButton" (click)="deleteProgram(t.program_name!)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

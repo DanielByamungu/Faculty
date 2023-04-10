@@ -1,0 +1,16 @@
+<navbar>
+  <navlink *ngIf="user.type_id < 4" [active]="false" linkref="/management" linkval="Management"></navlink>
+  <navlink [active]="false" linkref="/job-postings" linkval="Job Postings"></navlink>
+  <navlink [active]="false" [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+<form class="flex-col flex-row" id="courseForm" [formGroup]="addProgramForm" (ngSubmit)="submit()">
+  <div *ngIf="isError" id="formError">
+    <error-message error="{{ errorMessage }}"></error-message>
+  </div>
+  <div class="input-text">
+    <label for="programName"> Program Name: </label>
+    <input type="text" name="programName" id="programName" formControlName="programName"/>
+  </div>
+  <form-submit inputval="Submit" style="margin: auto"></form-submit>
+</form>

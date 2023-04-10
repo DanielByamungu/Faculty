@@ -1,0 +1,80 @@
+<navbar>
+  <navlink linkref="/home" linkval="Home"></navlink>
+  <navlink *ngIf="user.type_id < 3" [active]="false" linkref="/management" linkval="Management"></navlink>
+  <navlink [active]="false" [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+<ng-container></ng-container>
+<div *ngIf="actionMessage !== null" class="alert info" id="form-info-container">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';"
+  >&times;</span>
+  <h1>
+    Action Message!
+  </h1>
+  <br/>
+  <p>
+    {{actionMessage}}
+  </p>
+  <br/>
+</div>
+<ng-container *ngIf="type_id == 3 || type_id == 4; then applyTable; else editTable"></ng-container>
+<div class="flex-col data-container" >
+  <ng-template #applyTable>
+    <div class="title-container flex-row">
+      <div>
+        <h1>Job Postings</h1>
+      </div>
+    </div>
+
+    <table class="table-container listing-table">
+      <thead>
+        <tr class="table-bg-grey">
+          <th>Code</th>
+          <th>Name</th>
+          <th>Term</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-data-container">
+        <tr *ngFor="let course of jobsListCourses; let i = index ">
+          <td>{{course.course_code}}</td>
+          <td>{{course.course_name}}</td>
+          <td>{{getTermName(course.term_id).toString()}}</td>
+          <td>
+            <a routerLink="/application-form/{{jobsList[i].job_id}}">Apply</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+
+  <ng-template #editTable>
+    <div class="title-container flex-row">
+      <div>
+        <h1>Job Postings</h1>
+      </div>
+    </div>
+
+    <table class="table-container listing-table">
+      <thead>
+        <tr class="table-bg-grey">
+          <th>Code</th>
+          <th>Name</th>
+          <th>Term</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-data-container">
+        <tr *ngFor="let course of jobsListCourses; let i = index ">
+          <td>{{course.course_code}}</td>
+          <td>{{course.course_name}}</td>
+<!--          <td>{{course.term_id}}</td>-->
+          <td>{{getTermName(course.term_id)}}</td>
+          <td>
+            <a routerLink="/edit-job-posting/{{jobsList[i].job_id}}">Edit</a> |
+            <a routerLink="/delete/job-postings/jobpostings/{{jobsList[i].job_id}}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>

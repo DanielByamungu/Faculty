@@ -1,0 +1,32 @@
+a {
+  color: white;
+  text-align: center;
+  font-size: 1.2em;
+  text-decoration: none;
+  font-family: var(--segoe-font);
+  letter-spacing: 1px;
+  margin-right: 1em;
+  transition: all 0.35s ease 0s;
+}
+
+.active-link {
+  color: grey;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+a:not(.disabled):hover {
+  color: #be9b68;
+}
+
+@media only screen and (max-width: 600px) {
+  a {
+    display: block;
+    top: 30px;
+    color: black;
+    margin-top: 1em;
+  }
+}

@@ -1,0 +1,13 @@
+input {
+  background-color: var(--bg-blue);
+  color: white;
+  border: transparent;
+  padding: 5px;
+  margin: 10px;
+  font-size: 1em;
+}
+
+input:hover {
+  cursor: pointer;
+  background-color: rgb(3, 3, 107);
+}

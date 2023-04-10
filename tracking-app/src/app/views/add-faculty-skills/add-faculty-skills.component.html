@@ -1,0 +1,74 @@
+<navbar>
+  <navlink linkref="/home" linkval="Home"></navlink>
+  <navlink linkref="/job-postings" linkval="Job Listing"></navlink>
+  <navlink linkref="/management" linkval="Management"></navlink>
+  <navlink [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+<form class="small-form-container" id="facultyForm" [formGroup]="facultySkillsForm" (ngSubmit)="onSubmit()">
+  <h1 class="form-title" style="color: black; font-weight: bolder;">Add Faculty Skills</h1>
+  <div class="input-text">
+    <label for="user">Choose a Faculty Member</label>
+    <select formControlName="user" id="user" required>
+      <option selected value="0" style="text-align: center;">Pick a Faculty Member ....</option>
+      <option *ngFor="let faculty of allFaculty" value="{{faculty.u_id}}">
+        {{faculty.full_name}}
+      </option>
+    </select>
+  </div>
+  <table class="center">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Novice</th>
+      <th>Skilled</th>
+      <th>Expert</th>
+      <th>N/A</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let skill of displaySkills; let i = index">
+      <td class="text-left-align">{{ skill.name }}</td>
+      <td>
+        <input
+          type="radio"
+          id="{{ skill.controlName }}"
+          name="{{ skill.controlName }}"
+          value=2
+          formControlName="{{ skill.controlName }}"
+        />
+      </td>
+      <td>
+        <input
+          type="radio"
+          id="{{ skill.controlName }}"
+          name="{{ skill.controlName }}"
+          value=3
+          formControlName="{{ skill.controlName }}"
+        />
+      </td>
+      <td>
+        <input
+          type="radio"
+          id="{{ skill.controlName }}"
+          name="{{ skill.controlName }}"
+          value=4
+          formControlName="{{ skill.controlName }}"
+        />
+      </td>
+      <td>
+        <input
+          type="radio"
+          id="{{ skill.controlName }}"
+          name="{{ skill.controlName }}"
+          value=1
+          formControlName="{{ skill.controlName }}"
+        />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="center">
+    <form-submit inputval="Submit" style="margin: auto"></form-submit>
+  </div>
+</form>

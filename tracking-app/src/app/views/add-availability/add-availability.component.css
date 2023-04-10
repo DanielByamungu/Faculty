@@ -1,0 +1,43 @@
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+
+.dropbox-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.dropbox-container > select {
+  margin-right: 10px;
+}
+
+#submitButton {
+  margin-top: 20px;
+}
+
+label {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+select {
+  font-size: 1.5em;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1em;
+}
+
+h2 {
+  margin-right: 10px;
+}
+
+* {
+  z-index: 0;
+}

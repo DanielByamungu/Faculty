@@ -1,0 +1,327 @@
+<navbar>
+  <navlink [active]="false" [signOut]="true" linkval="Sign out"></navlink>
+</navbar>
+
+<div class="alert info" id="form-info-container">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';"
+  >&times;</span>
+  <h1>
+    ACSIT Spring 2023 Delivery & Scheduling Restrictions - PT Faculty Form
+  </h1>
+  <p>
+    We are in the process of delivery planning for the Spring 2023 term. We
+    anticipate that 90% of our course will be in-person delivery at the
+    Waterloo, Downtown Kitchener, or Guelph campuses. The following questions
+    are intended to help us better understand our staffing needs and begin
+    planning teaching assignments.
+  </p>
+  <br />
+  <p>
+    If you have any questions before completing and submitting this form please
+    contact your Program Manager:
+  </p>
+  <br />
+  <p>- Dan Rodgers (drodgers1@conestogac.on.ca) for CP, CPA, ITID, MSD</p>
+  <p>
+    - Jacqueline Smith (jsmith3@conestogac.on.ca) for CAD, CST, ITI, ITNS, VCC,
+    BDSA, RSDD
+  </p>
+  <p>- Zemar Salim (zsalim@conestogac.on.ca) for BCS, SET, CAS, SQATE</p>
+  <br />
+  <p>
+    The <b>deadline</b> for submitting your availability restrictions for Spring
+    2023 term is <b>Friday January 27 @ 4pm.</b>
+  </p>
+  <br />
+  <p>Please note the following:</p>
+  <br />
+  <p>
+    <b>1)</b> Spring is our lightest load of courses, your assignments may be
+    less than in Fall and Winter. If you do not receive a teaching assignment in
+    the Spring you will still be considered for Fall 2023.
+  </p>
+  <br />
+  <p>
+    <b>2)</b> Spring 2023 term dates: Monday May 8th to Saturday August 19th
+    (inclusive)
+  </p>
+  <br />
+  <p>
+    <b>3)</b> All faculty are required to be a resident of Ontario in order to
+    be eligible to receive a contract of employment. Out of country access to
+    Conestoga's systems is restricted. Any travel planned during the semester
+    period should be disclosed in advance and will require pre-approval.
+  </p>
+  <br />
+  <p>
+    <b>4)</b> Until further notice, all employees must be compliant with our
+    COVID Community Safety Policy in order to be eligible to receive a contract
+    of employment. Proof of vaccination must be required.
+  </p>
+</div>
+
+<form
+  class="flex-col flex-center"
+  id="facultyForm"
+  [formGroup]="jobApplicationForm"
+  (ngSubmit)="onSubmit()">
+
+  <div *ngIf="isError" id="emailError" >
+    <error-message error="{{ errorMessage }}"></error-message>
+  </div>
+
+  <input type="hidden" name="jobId" formControlName="jobId" />
+  <input type="hidden" name="userId" formControlName="userId" />
+  <p>
+    By clicking "agree", I confirm that I have read and understand the details
+    listed above.
+  </p>
+  <div class="radio-btn">
+    <input
+      type="radio"
+      id="termsAgreement"
+      name="termsAgreement"
+      value="agree"
+      formControlName="termsAgreement"
+    />
+    <label for="termsAgreement"> I agree </label>
+  </div>
+  <br />
+  <div class="input-text">
+    <label for="firstName">First Name:</label>
+    <input
+      type="text"
+      name="firstName"
+      id="firstName"
+      formControlName="firstName"
+    />
+  </div>
+  <br />
+  <div class="input-text">
+    <label for="lastName">Last Name:</label>
+    <input
+      type="text"
+      name="lastName"
+      id="lastName"
+      formControlName="lastName"
+    />
+  </div>
+  <br />
+  <div class="input-text">
+    <label for="homePhone">Home Phone:</label>
+    <input
+      type="text"
+      name="homePhone"
+      id="homePhone"
+      formControlName="homePhone"
+    />
+  </div>
+  <br />
+  <div class="input-text">
+    <label for="mobilePhone">Cell Phone:</label>
+    <input
+      type="text"
+      name="mobilePhone"
+      id="mobilePhone"
+      formControlName="mobilePhone"
+    />
+  </div>
+  <br />
+  <p>
+    Are you able to teach for the Spring 2023 term (May 8 - August 19
+    inclusive)?
+  </p>
+  <div class="radio-btn">
+    <input
+      type="radio"
+      id="term"
+      name="term"
+      value="yes"
+      formControlName="term"
+    />
+    <label for="term"> Yes </label>
+    <input type="radio" name="term" value="no" formControlName="term" />
+    <label for="term"> No </label>
+  </div>
+  <br />
+
+  <p>
+    Do you have any planned vacation time between May 8 - August 19? inclusive)?
+  </p>
+  <div class="radio-btn">
+    <input
+      type="radio"
+      id="vacation"
+      name="vacation"
+      value="yes"
+      formControlName="vacation"
+    />
+    <label for="vacation"> Yes </label>
+    <input type="radio" name="vacation" value="no" formControlName="vacation" />
+    <label for="vacation"> No </label>
+  </div>
+  <br />
+
+  <p>
+    5. Are you available to teach in-person at the Waterloo-Kitchener campuses
+    beginning in May 2023?
+  </p>
+  <div class="radio-btn">
+    <input
+      type="radio"
+      name="waterlooCampus"
+      id="waterlooCampus"
+      value="yes"
+      formControlName="waterlooCampus"
+    />
+    <label for="waterlooCampus"> Yes </label>
+    <input
+      type="radio"
+      name="waterlooCampus"
+      value="no"
+      formControlName="waterlooCampus"
+    />
+    <label for="waterlooCampus"> No </label>
+  </div>
+
+  <br />
+
+  <p>
+    6. Are you available to teach in-person at the Guelph campuses beginning in
+    May 2023?
+  </p>
+  <div class="radio-btn">
+    <input
+      type="radio"
+      name="guelphCampus"
+      value="yes"
+      formControlName="guelphCampus"
+    />
+    <label > Yes </label>
+    <input
+      type="radio"
+      name="guelphCampus"
+      value="no"
+      id="guelphCampus"
+      formControlName="guelphCampus"
+    />
+    <label for="guelphCampus"> No </label>
+  </div>
+
+  <br />
+
+  <p>
+    7. Being a resident of Ontario is a contract requirement. To the best of
+    your knowledge, will you be residing in Ontario for the complete duration of
+    the Spring 2023 term (May 8 - August 19 inclusive)?
+  </p>
+  <div class="radio-btn">
+    <input type="radio" name="ontario" value="yes" formControlName="ontario" />
+    <label> Yes </label>
+    <input type="radio" name="ontario" value="no" formControlName="ontario" />
+    <label > No </label>
+  </div>
+
+  <br />
+
+  <p>
+    8. What is the maximum number of contact hours per week are interested in
+    having?
+  </p>
+  <div class="radio-btn">
+    <input
+      type="radio"
+      name="amountOfHours"
+      value="6"
+      formControlName="amountOfHours"
+    />
+    <label> up to 6hrs / week (PT Hourly)</label><br/>
+    <input
+      type="radio"
+      name="amountOfHours"
+      value="7-12"
+      formControlName="amountOfHours"
+    />
+    <label >
+      between 7 hrs and 12 hrs / week (PT Partial Load)
+    </label><br/>
+    <input
+      type="radio"
+      name="amountOfHours"
+      formControlName="amountOfHours"
+      value="13-24"
+    />
+    <label >
+      between 13 hrs and 24 hrs / week (PT Sessional)
+    </label>
+  </div>
+
+  <br />
+  <br />
+  <br />
+
+  <p>9. Please rate your skill leve in the following areas:</p>
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th>Novice</th>
+      <th>Skilled</th>
+      <th>Expert</th>
+      <th>N/A</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let skill of skills; let i = index">
+      <td class="text-left-align">{{ skill.name }}</td>
+      <td>
+        <input
+          type="radio"
+          id="{{ skill.controlName }}"
+          name="{{ skill.controlName }}"
+          value=2
+          formControlName="{{ skill.controlName }}"
+        />
+      </td>
+      <td>
+        <input
+          type="radio"
+          id="{{ skill.controlName }}"
+          name="{{ skill.controlName }}"
+          value=3
+          formControlName="{{ skill.controlName }}"
+        />
+      </td>
+      <td>
+        <input
+          type="radio"
+          id="{{ skill.controlName }}"
+          name="{{ skill.controlName }}"
+          value=4
+          formControlName="{{ skill.controlName }}"
+        />
+      </td>
+      <td>
+        <input
+          type="radio"
+          id="{{ skill.controlName }}"
+          name="{{ skill.controlName }}"
+          value=1
+          formControlName="{{ skill.controlName }}"
+        />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <br />
+  <br />
+
+  <label for="comments">10. Comments.</label>
+  <textarea name="comments" id="comments" formControlName="comments"></textarea>
+
+  <br />
+  <br />
+
+  <form-submit inputval="Submit" style="margin: auto"></form-submit>
+</form>

@@ -1,0 +1,114 @@
+nav {
+  z-index: 2000;
+  background: black;
+  width: 100%;
+  height: 10vh;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.center {
+  margin: auto;
+}
+
+.flex-end {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.space-around {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexg-2 {
+  flex-grow: 2;
+}
+
+.text-white {
+  color: white;
+}
+
+.animate-open {
+  animation-name: drawerOpen;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.animate-close {
+  animation-name: drawerClose;
+  animation-duration: 0.5s;
+}
+
+#logo-container {
+  margin-right: auto;
+  margin-left: 2em;
+}
+
+#link-container {
+  margin-right: 2em;
+}
+
+#gold-seperator {
+  background-color: #be9b68;
+  height: 0.4em;
+  width: 100vw;
+}
+
+#hamburger-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 1rem;
+}
+
+#drawer-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: -8px 0 3px -3px #00000030;
+  width: 0vw;
+  height: 100vh;
+  background-color: white;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+#drawer-container > h2 {
+  display: inline;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  text-decoration: underline;
+  font-family: var(--segoe-font);
+}
+
+#btnClose {
+  width: 60%;
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+#btnClose:hover {
+  color: white;
+  background-color: black;
+}
+
+@keyframes drawerOpen {
+  from {
+    width: 0vw;
+  }
+  to {
+    width: 80vw;
+  }
+}
+
+@keyframes drawerClose {
+  from {
+    width: 80vw;
+  }
+  to {
+    width: 0vw;
+  }
+}

@@ -1,0 +1,9 @@
+.input-validation-error {
+  border: 2px solid #dc3545; /* same red as text-danger */
+  background-color: #faebd7; /* antique white */
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
